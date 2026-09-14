@@ -1,0 +1,169 @@
+/* ==========================================================
+   Call for Book Chapters — shared stylesheet
+   Used by the index page and every book page.
+   ========================================================== */
+
+:root {
+  --ink: #1d2a2f;
+  --ink-soft: #4b5b61;
+  --ground: #f7f8f5;
+  --card: #ffffff;
+  --line: #dfe5e1;
+  --brand: #0f5c4d;        /* deep green – sustainability */
+  --brand-2: #1b7f6a;
+  --accent: #e0a526;       /* warm gold for highlights */
+  --tint: #e8f2ee;
+  --radius: 10px;
+  --max: 1100px;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(15,92,77,.06);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--ground);
+}
+
+h1, h2, h3 { font-family: "Merriweather", Georgia, "Times New Roman", serif; line-height: 1.3; color: var(--ink); }
+h2 { font-size: 1.65rem; margin: 0 0 1rem; }
+h3 { font-size: 1.15rem; margin: 0 0 .5rem; }
+a { color: var(--brand-2); }
+a:hover { color: var(--brand); }
+img { max-width: 100%; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Top navigation ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--brand);
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
+.topbar .site { color: #fff; font-weight: 700; text-decoration: none; letter-spacing: .2px; }
+.topbar nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.topbar nav a {
+  display: block; padding: 8px 12px; border-radius: 6px;
+  color: #d9ece6; text-decoration: none; font-size: .95rem;
+}
+.topbar nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
+.menu-toggle {
+  display: none; background: none; border: 1px solid rgba(255,255,255,.4);
+  color: #fff; border-radius: 6px; padding: 6px 10px; font-size: 1rem; cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  .menu-toggle { display: block; }
+  .topbar nav { display: none; width: 100%; padding-bottom: 10px; }
+  .topbar nav.open { display: block; }
+  .topbar .wrap { flex-wrap: wrap; }
+  .topbar nav ul { flex-direction: column; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+  color: #fff;
+  padding: 64px 0 56px;
+}
+.hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.7rem); margin: .4rem 0 1rem; }
+.hero .eyebrow {
+  display: inline-block; text-transform: uppercase; letter-spacing: 2px;
+  font-size: .8rem; font-weight: 700; color: var(--accent);
+}
+.hero p.lead { font-size: 1.15rem; max-width: 760px; color: #e3f1ec; margin: 0 0 1.5rem; }
+.badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.6rem; }
+.badge {
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28);
+  padding: 5px 12px; border-radius: 999px; font-size: .9rem;
+}
+
+.btn {
+  display: inline-block; padding: 11px 22px; border-radius: 8px;
+  font-weight: 700; text-decoration: none; border: 2px solid transparent;
+}
+.btn-primary { background: var(--accent); color: #1d2a2f; }
+.btn-primary:hover { background: #f0b83a; color: #1d2a2f; }
+.btn-ghost { border-color: rgba(255,255,255,.7); color: #fff; margin-left: 8px; }
+.btn-ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
+.btn-solid { background: var(--brand); color: #fff; }
+.btn-solid:hover { background: var(--brand-2); color: #fff; }
+
+/* ---------- Sections ---------- */
+section.block { padding: 56px 0; }
+section.block:nth-of-type(even) { background: #fff; }
+.section-kicker { color: var(--brand-2); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: .8rem; margin-bottom: .3rem; }
+
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow);
+}
+
+.grid { display: grid; gap: 20px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.pending {
+  border: 2px dashed var(--accent); background: #fff9ea;
+  border-radius: var(--radius); padding: 14px 18px; color: #6b5313; font-size: .95rem;
+}
+
+/* ---------- Book list (index) ---------- */
+.book-card { display: flex; flex-direction: column; gap: 10px; }
+.book-card .status {
+  align-self: flex-start; font-size: .78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; padding: 3px 10px; border-radius: 999px;
+}
+.status.open { background: #d7f0e4; color: #0f5c4d; }
+.status.soon { background: #fdf0cf; color: #7a5a0c; }
+.status.closed { background: #ececec; color: #666; }
+.book-card .meta { color: var(--ink-soft); font-size: .93rem; margin: 0; }
+.book-card .actions { margin-top: auto; padding-top: 8px; }
+
+/* ---------- Chapter list ---------- */
+.part { margin-bottom: 26px; }
+.part h3 { background: var(--tint); border-left: 4px solid var(--brand); padding: 10px 14px; border-radius: 6px; }
+ol.chapters { margin: 0; padding-left: 1.4rem; }
+ol.chapters li { padding: 6px 0; border-bottom: 1px solid var(--line); }
+ol.chapters li:last-child { border-bottom: none; }
+ol.chapters .subtopics { display: block; color: var(--ink-soft); font-size: .93rem; }
+
+/* ---------- Timeline table ---------- */
+.table-scroll { overflow-x: auto; }
+table.dates { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+table.dates th, table.dates td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+table.dates th { background: var(--brand); color: #fff; font-weight: 600; }
+table.dates tr:last-child td { border-bottom: none; }
+.tag-closed { color: #a33; font-weight: 700; font-size: .85rem; margin-left: 6px; }
+
+/* ---------- Guidelines ---------- */
+ul.checks { list-style: none; padding: 0; margin: 0; }
+ul.checks li { position: relative; padding: 6px 0 6px 30px; }
+ul.checks li::before {
+  content: "✓"; position: absolute; left: 0; top: 6px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--tint); color: var(--brand); font-weight: 700;
+  font-size: .8rem; display: grid; place-items: center;
+}
+
+/* ---------- Editors ---------- */
+.editor { display: flex; gap: 16px; align-items: flex-start; }
+.editor .avatar {
+  flex: 0 0 72px; height: 72px; border-radius: 50%; background: var(--tint);
+  display: grid; place-items: center; font-weight: 700; color: var(--brand); font-size: 1.3rem;
+  overflow: hidden;
+}
+.editor .avatar img { width: 100%; height: 100%; object-fit: cover; }
+.editor .affil { color: var(--ink-soft); font-size: .93rem; margin: 0 0 .4rem; }
+.editor p { margin: .3rem 0; }
+
+/* ---------- Footer ---------- */
+footer.site-footer { background: #13282a; color: #b8c9c5; padding: 28px 0; font-size: .92rem; }
+footer.site-footer a { color: #e6f2ef; }
