@@ -145,6 +145,11 @@ th { background-color: var(--blue-light); color: var(--navy); }
   padding: 10px 14px; margin: 14px 0;
 }
 
+/* ---------- References (APA hanging indent) ---------- */
+ul.refs { list-style: none; padding-left: 0; margin: 0 0 10px; }
+ul.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 8px; }
+ul.refs a { word-break: break-all; }
+
 /* ---------- Editors ---------- */
 .editor {
   display: flex; gap: 18px; align-items: flex-start;
